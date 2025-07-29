@@ -4,6 +4,7 @@ import ThemeToggle from './components/ThemeToggle';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import SystemsCarousel from './components/SystemsCarousel';
+import SystemsSection from './components/SystemsSection';
 import WhyChooseSection from './components/WhyChooseSection';
 import ImplementationSection from './components/ImplementationSection';
 import FinalCTA from './components/FinalCTA';
@@ -32,8 +33,11 @@ function App() {
       <Header 
         onBookingClick={handleBookingClick} 
         isDarkMode={isDarkMode}
+        activeSystem={activeSystem}
+        onSystemChange={handleSystemChange}
       />
       <Hero onBookingClick={handleBookingClick} isDarkMode={isDarkMode} />
+      <SystemsSection onBookingClick={handleBookingClick} isDarkMode={isDarkMode} />
       <SystemsCarousel 
         onBookingClick={handleBookingClick} 
         isDarkMode={isDarkMode}

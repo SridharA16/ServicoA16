@@ -137,7 +137,7 @@ const SystemsCarousel: React.FC<SystemsCarouselProps> = ({ onBookingClick, isDar
   const currentSystem = systems[currentSlide];
 
   return (
-    <section className="pt-32 pb-16 bg-black relative overflow-hidden">
+    <section className="py-16 bg-black relative overflow-hidden">
       {/* Background gradient animation */}
       <div className="absolute inset-0 opacity-10">
         <div className={`absolute inset-0 bg-gradient-to-br ${currentSystem.color} transition-all duration-1000 ease-in-out`} />

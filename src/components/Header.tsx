@@ -6,11 +6,13 @@ interface HeaderProps {
   isDarkMode: boolean;
   activeSystem: number;
   onSystemChange: (system: number) => void;
+  activeSystem: number;
+  onSystemChange: (system: number) => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ onBookingClick, isDarkMode, activeSystem, onSystemChange }) => {
   return (
-    <header className="fixed w-full top-0 z-40 bg-black">
+    <header className="fixed w-full top-0 z-50 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
