@@ -1,5 +1,4 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
 
 interface SystemsSectionProps {
   onBookingClick: () => void;
@@ -14,19 +13,9 @@ const SystemsSection: React.FC<SystemsSectionProps> = ({ onBookingClick, isDarkM
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white transition-colors duration-300" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
             Complete AI Growth Infrastructure Systems
           </h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed text-white transition-colors duration-300" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
+          <p className="text-xl max-w-3xl mx-auto leading-relaxed text-white transition-colors duration-300" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
             Three integrated systems working together to transform your practice
           </p>
-        </div>
-        
-        <div className="text-center mt-12">
-          <button
-            onClick={onBookingClick}
-            className="btn-primary group"
-          >
-            Get Your Custom Implementation Plan
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </button>
         </div>
       </div>
     </section>
