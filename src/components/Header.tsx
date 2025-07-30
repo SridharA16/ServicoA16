@@ -56,11 +56,13 @@ const Header: React.FC<HeaderProps> = ({ onBookingClick, isDarkMode, activeSyste
     <header className="fixed w-full top-0 z-50 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="flex items-center space-x-12">
+          <div className="flex-1">
             <div className="text-[2.26rem] font-bold text-white transition-colors duration-300" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
               Serviqo
             </div>
-            
+          </div>
+          
+          <div className="flex-1 flex justify-center">
             <nav className="hidden md:flex items-center space-x-8">
               {menuItems.map((item, index) => (
                 <div key={index} className="relative group">
@@ -88,13 +90,15 @@ const Header: React.FC<HeaderProps> = ({ onBookingClick, isDarkMode, activeSyste
             </nav>
           </div>
           
-          <button
-            onClick={onBookingClick}
-            className="btn-primary group"
-          >
-            <Calendar className="w-5 h-5 mr-2" />
-            AI Strategy Session
-          </button>
+          <div className="flex-1 flex justify-end">
+            <button
+              onClick={onBookingClick}
+              className="btn-primary group"
+            >
+              <Calendar className="w-5 h-5 mr-2" />
+              AI Strategy Session
+            </button>
+          </div>
         </div>
       </div>
     </header>
