@@ -11,21 +11,24 @@ const ImplementationSection: React.FC<ImplementationSectionProps> = ({ isDarkMod
   const phases = [
     {
       icon: Calendar,
-      phase: "Phase 1: Foundation",
+      phase: "Phase 1",
+      title: "Foundation",
       duration: "30 Days",
       description: "Deploy Client Acquisition Engine with practice management integration and professional compliance review",
       image: "/images/Foundation.png"
     },
     {
       icon: Settings,
-      phase: "Phase 2: Optimization", 
+      phase: "Phase 2",
+      title: "Optimization",
       duration: "60 Days",
       description: "Implement Operations Automation Hub with workflow analysis and team training",
       image: "/images/Optimization.png"
     },
     {
       icon: BarChart3,
-      phase: "Phase 3: Excellence",
+      phase: "Phase 3",
+      title: "Excellence",
       duration: "90 Days", 
       description: "Activate Client Success Platform with advanced analytics and strategic optimization",
       image: "/images/Excellence.png"
@@ -125,9 +128,14 @@ const ImplementationSection: React.FC<ImplementationSectionProps> = ({ isDarkMod
                     {/* Phase Content */}
                     <div className="space-y-4">
                       <div className="flex items-center justify-between mb-4">
-                        <h3 className="text-2xl font-bold text-black">
-                          {phase.phase}
-                        </h3>
+                        <div>
+                          <h3 className="text-2xl font-bold text-black">
+                            {phase.phase}
+                          </h3>
+                          <h4 className="text-xl font-semibold text-gray-700 mt-1">
+                            {phase.title}
+                          </h4>
+                        </div>
                         <span className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-500 ${
                           activePhase === index
                             ? 'bg-blue-100 text-blue-700'
