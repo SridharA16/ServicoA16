@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Calendar, Settings, BarChart3 } from 'lucide-react';
 
 interface ImplementationSectionProps {
@@ -6,7 +6,9 @@ interface ImplementationSectionProps {
 }
 
 const ImplementationSection: React.FC<ImplementationSectionProps> = ({ isDarkMode }) => {
-  const [activePhase, setActivePhase] = useState(0);
+  const [visiblePhases, setVisiblePhases] = useState<boolean[]>([false, false, false]);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
   const phases = [
     {
@@ -19,7 +21,7 @@ const ImplementationSection: React.FC<ImplementationSectionProps> = ({ isDarkMod
     },
     {
       icon: Settings,
-      phase: "Phase 2",
+      phase: "Phase 2", 
       title: "Optimization",
       duration: "60 Days",
       description: "Implement Operations Automation Hub with workflow analysis and team training",
@@ -29,179 +31,175 @@ const ImplementationSection: React.FC<ImplementationSectionProps> = ({ isDarkMod
       icon: BarChart3,
       phase: "Phase 3",
       title: "Excellence",
-      duration: "90 Days", 
+      duration: "90 Days",
       description: "Activate Client Success Platform with advanced analytics and strategic optimization",
       image: "/images/Excellence.png"
     }
   ];
 
-  // Auto-scroll effect
+  // Intersection Observer for triggering animation
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActivePhase((prev) => (prev + 1) % phases.length);
-    }, 4000);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+            // Sequential animation with delays
+            setTimeout(() => setVisiblePhases(prev => [true, prev[1], prev[2]]), 200);
+            setTimeout(() => setVisiblePhases(prev => [prev[0], true, prev[2]]), 600);
+            setTimeout(() => setVisiblePhases(prev => [prev[0], prev[1], true]), 1000);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
 
-    return () => clearInterval(interval);
-  }, [phases.length]);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasAnimated]);
 
   return (
-    <section className="py-16 bg-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Title */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-black" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
-            Implementation Approach
+    <section 
+      ref={sectionRef}
+      className="py-20 bg-gradient-to-br from-gray-900 via-blue-900/20 to-gray-900 relative overflow-hidden"
+    >
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-indigo-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
+      </div>
+
+      {/* Floating Particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-2 h-2 bg-blue-400/30 rounded-full animate-pulse"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${2 + Math.random() * 2}s`
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Title with Glow Effect */}
+        <div className="text-center mb-16">
+          <h2 
+            className="text-5xl md:text-6xl font-bold text-white mb-6 relative"
+            style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}
+          >
+            <span className="relative z-10">Implementation Approach</span>
+            <div className="absolute inset-0 text-blue-400/20 blur-sm">Implementation Approach</div>
           </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
         </div>
         
-        {/* Main Content Container */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          
-          {/* Left Side - Images */}
-          <div className="relative h-[600px] rounded-2xl overflow-hidden bg-white shadow-lg">
-            {phases.map((phase, index) => (
-              <div
-                key={index}
-                className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-                  activePhase === index 
-                    ? 'opacity-100 transform translate-y-0' 
-                    : index < activePhase 
-                      ? 'opacity-0 transform -translate-y-full'
-                      : 'opacity-0 transform translate-y-full'
-                }`}
-              >
-                <img
-                  src={phase.image}
-                  alt={phase.phase}
-                  className="w-full h-full object-contain p-8"
-                />
-              </div>
-            ))}
-            
-            {/* Navigation Dots */}
-            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
-              {phases.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActivePhase(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    activePhase === index 
-                      ? 'bg-blue-600 scale-125' 
-                      : 'bg-gray-400 hover:bg-gray-600'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Right Side - Scrolling Phase Containers */}
-          <div className="relative h-[600px] overflow-hidden">
-            <div 
-              className="transition-transform duration-1000 ease-in-out"
-              style={{
-                transform: `translateY(-${activePhase * 100}%)`,
-                height: `${phases.length * 100}%`
-              }}
+        {/* Single Page Layout - All Phases Visible */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          {phases.map((phase, index) => (
+            <div
+              key={index}
+              className={`transform transition-all duration-1000 ease-out ${
+                visiblePhases[index] 
+                  ? 'translate-x-0 opacity-100' 
+                  : 'translate-x-8 opacity-0'
+              }`}
+              style={{ transitionDelay: `${index * 200}ms` }}
             >
-              {phases.map((phase, index) => (
-                <div
-                  key={index}
-                  className="h-full flex items-center justify-center p-4"
-                  style={{ height: `${100 / phases.length}%` }}
-                >
-                  <div className={`w-full max-w-lg p-8 rounded-2xl shadow-lg transition-all duration-500 bg-white border-2 ${
-                    activePhase === index 
-                      ? 'border-blue-500 shadow-xl transform scale-105' 
-                      : 'border-gray-200 transform scale-95 opacity-75'
-                  }`}>
-                    {/* Phase Icon */}
-                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 ${
-                      activePhase === index
-                        ? 'bg-gradient-to-br from-blue-600 to-purple-600 shadow-lg'
-                        : 'bg-gray-100'
-                    }`}>
-                      <phase.icon className={`w-8 h-8 transition-colors duration-500 ${
-                        activePhase === index ? 'text-white' : 'text-gray-600'
-                      }`} />
+              {/* Phase Card */}
+              <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:bg-gray-50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 group">
+                {/* Image Container - Increased Size */}
+                <div className="relative h-80 overflow-hidden">
+                  <img
+                    src={phase.image}
+                    alt={phase.phase}
+                    className="w-full h-full object-contain p-6 group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent"></div>
+                </div>
+
+                {/* Content - Reduced Size */}
+                <div className="p-6">
+                  {/* Phase Icon and Title */}
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center mr-4 bg-gradient-to-br from-blue-600 to-purple-600 shadow-lg group-hover:shadow-blue-500/50 transition-all duration-300">
+                      <phase.icon className="w-6 h-6 text-white" />
                     </div>
-
-                    {/* Phase Content */}
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between mb-4">
-                        <div>
-                          <h3 className="text-2xl font-bold text-black">
-                            {phase.phase}
-                          </h3>
-                          <h4 className="text-xl font-semibold text-gray-700 mt-1">
-                            {phase.title}
-                          </h4>
-                        </div>
-                        <span className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-500 ${
-                          activePhase === index
-                            ? 'bg-blue-100 text-blue-700'
-                            : 'bg-gray-100 text-gray-600'
-                        }`}>
-                          {phase.duration}
-                        </span>
-                      </div>
-                      
-                      <p className="text-gray-700 text-lg leading-relaxed">
-                        {phase.description}
-                      </p>
-
-                      {/* Progress Indicator */}
-                      <div className="flex items-center space-x-2 pt-4">
-                        <div className="flex-1 bg-gray-200 rounded-full h-2">
-                          <div 
-                            className={`h-2 rounded-full transition-all duration-1000 ${
-                              activePhase === index
-                                ? 'bg-gradient-to-r from-blue-600 to-purple-600 w-full'
-                                : activePhase > index
-                                  ? 'bg-green-500 w-full'
-                                  : 'bg-gray-300 w-0'
-                            }`}
-                          />
-                        </div>
-                        <span className="text-sm text-gray-500 font-medium">
-                          {activePhase > index ? 'Complete' : activePhase === index ? 'In Progress' : 'Upcoming'}
-                        </span>
-                      </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+                        {phase.phase}
+                      </h3>
+                      <h4 className="text-lg font-semibold text-gray-600 group-hover:text-gray-800 transition-colors duration-300">
+                        {phase.title}
+                      </h4>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
 
-            {/* Scroll Indicators */}
-            <div className="absolute right-0 top-1/2 transform translate-x-8 -translate-y-1/2 flex flex-col space-y-4">
-              {phases.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActivePhase(index)}
-                  className={`w-4 h-4 rounded-full border-2 transition-all duration-300 ${
-                    activePhase === index
-                      ? 'bg-blue-600 border-blue-600 scale-125'
-                      : 'bg-transparent border-gray-400 hover:border-blue-600'
-                  }`}
-                />
-              ))}
+                  {/* Duration Badge */}
+                  <div className="inline-block px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-600 border border-blue-200 mb-4">
+                    {phase.duration}
+                  </div>
+                  
+                  {/* Description */}
+                  <p className="text-gray-600 leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
+                    {phase.description}
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
 
-        {/* Bottom Summary */}
-        <div className="mt-16 text-center">
-          <div className="bg-white rounded-2xl p-8 max-w-4xl mx-auto shadow-lg border border-gray-200">
-            <h3 className="text-2xl font-bold text-black mb-4">
-              Complete Transformation in 90 Days
-            </h3>
-            <p className="text-gray-700 text-lg">
-              Our proven three-phase approach ensures seamless integration with your existing practice 
-              while delivering measurable results at each milestone.
-            </p>
+        {/* Bottom Summary with Enhanced Animation */}
+        <div 
+          className={`transform transition-all duration-1000 ease-out ${
+            hasAnimated ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+          }`}
+          style={{ transitionDelay: '1200ms' }}
+        >
+          <div className="bg-gray-800/60 backdrop-blur-xl rounded-3xl p-8 max-w-4xl mx-auto shadow-2xl border border-gray-700/50 hover:border-blue-500/50 transition-all duration-500 hover:shadow-blue-500/20 hover:shadow-2xl group hover:scale-105">
+            {/* Glow Effect on Hover */}
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500/0 via-blue-500/5 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            
+            <div className="relative z-10">
+              <h3 className="text-3xl font-bold text-white mb-4 text-center group-hover:text-blue-300 transition-colors duration-300">
+                Complete Transformation in 90 Days
+              </h3>
+              <p className="text-gray-300 text-lg text-center leading-relaxed group-hover:text-white transition-colors duration-300">
+                Our proven three-phase approach ensures seamless integration with your existing practice 
+                while delivering measurable results at each milestone.
+              </p>
+              
+              {/* Success Metrics */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-blue-400 mb-2">389%</div>
+                  <div className="text-gray-400 text-sm">ROI Achievement</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-purple-400 mb-2">9 Days</div>
+                  <div className="text-gray-400 text-sm">Payback Period</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-green-400 mb-2">60%</div>
+                  <div className="text-gray-400 text-sm">Time Reduction</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Bottom Gradient Fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/50 to-transparent"></div>
     </section>
   );
 };
