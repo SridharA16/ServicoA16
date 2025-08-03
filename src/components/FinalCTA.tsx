@@ -41,3 +41,5 @@ const FinalCTA: React.FC<FinalCTAProps> = ({ onBookingClick, isDarkMode }) => {
 };
 
 export default FinalCTA;
+  )
+}
