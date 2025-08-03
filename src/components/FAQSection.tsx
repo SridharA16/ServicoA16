@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronDown, ChevronUp, HelpCircle, Calendar, Download, ArrowRight } from 'lucide-react';
 
 interface FAQSectionProps {
@@ -360,7 +360,6 @@ const FAQSection: React.FC<FAQSectionProps> = ({ isDarkMode }) => {
                   Over 73% of professional services firms plan to implement AI within 12 months. The question isn't whether AI will transform your industry—it's whether you'll lead or follow.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                  <button className="btn-primary group">
                   <button className="btn-primary group btn-hover-effect">
                     <Calendar className="w-5 h-5 mr-2" />
                     Schedule Free Discovery Call
