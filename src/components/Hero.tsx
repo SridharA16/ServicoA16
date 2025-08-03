@@ -56,3 +56,5 @@ const Hero: React.FC<HeroProps> = ({ onBookingClick, isDarkMode }) => {
 };
 
 export default Hero;
+  )
+}
