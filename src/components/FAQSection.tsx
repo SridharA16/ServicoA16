@@ -277,6 +277,7 @@ const FAQSection: React.FC<FAQSectionProps> = ({ isDarkMode }) => {
           </h2>
           
           <p className="text-xl max-w-3xl mx-auto text-gray-300 leading-relaxed" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
+          <p className="text-xl max-w-3xl mx-auto text-gray-300 leading-relaxed" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
             Get answers to the most common questions about AI implementation for professional services
           </p>
         </div>

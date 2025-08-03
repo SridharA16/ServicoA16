@@ -255,6 +255,7 @@ const AdHocServicesSection: React.FC<AdHocServicesSectionProps> = ({ onBookingCl
           </h2>
           
           <p className="text-xl max-w-3xl mx-auto text-gray-300 leading-relaxed" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
+          <p className="text-xl max-w-3xl mx-auto text-gray-300 leading-relaxed" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
             Multi-modal agents designed to collaborate with professionals to deliver precise, purpose-built work products. More coming soon.
           </p>
         </div>

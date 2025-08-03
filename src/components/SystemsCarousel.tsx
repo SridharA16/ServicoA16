@@ -150,6 +150,7 @@ const SystemsCarousel: React.FC<SystemsCarouselProps> = ({ onBookingClick, isDar
             Complete AI Growth Infrastructure Systems
           </h2>
           <p className="text-xl max-w-3xl mx-auto leading-relaxed text-white transition-colors duration-300" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
+          <p className="text-xl max-w-3xl mx-auto leading-relaxed text-white transition-colors duration-300" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
             Three integrated systems working together to transform your practice
           </p>
         </div>
@@ -169,7 +170,7 @@ const SystemsCarousel: React.FC<SystemsCarouselProps> = ({ onBookingClick, isDar
                       ? 'bg-white text-black shadow-lg'
                       : 'text-white hover:bg-white/20'
                   }`}
-                  style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}
+                  style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}
                 >
                   {system.name}
                 </button>
