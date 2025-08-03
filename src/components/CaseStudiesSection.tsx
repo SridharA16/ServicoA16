@@ -111,7 +111,7 @@ const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ isDarkMode }) =
   };
 
   return (
-    <section ref={sectionRef} className="py-20 bg-black relative overflow-hidden">
+    <section ref={sectionRef} id="case-studies-section" className="py-20 bg-black relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-900/10 via-purple-900/5 to-transparent"></div>
@@ -153,7 +153,7 @@ const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ isDarkMode }) =
             <div className="h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent flex-1"></div>
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white relative" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white relative" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
             <span className="relative z-10">Proven ROI from Industry Leaders</span>
             <div className="absolute inset-0 text-blue-400/20 blur-sm">Proven ROI from Industry Leaders</div>
           </h2>
@@ -175,7 +175,7 @@ const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ isDarkMode }) =
         </div>
         
         {/* Enhanced Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 auto-rows-fr">
           {caseStudies.map((study, index) => (
             <div
               key={index}
@@ -195,7 +195,7 @@ const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ isDarkMode }) =
               }}
               onMouseLeave={() => setIsAutoPlaying(true)}
             >
-              <div className={`relative bg-white rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 group cursor-pointer ${
+              <div className={`relative bg-white rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 group cursor-pointer h-full flex flex-col ${
                 activeCard === index 
                   ? 'shadow-blue-500/25 ring-2 ring-blue-500/50' 
                   : 'hover:shadow-xl'
@@ -206,7 +206,7 @@ const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ isDarkMode }) =
                 </div>
 
                 {/* Content Container */}
-                <div className="relative z-10 p-8">
+                <div className="relative z-10 p-8 flex-1 flex flex-col">
                   {/* Header with Image and Icon */}
                   <div className="flex items-start space-x-6 mb-6">
                     {/* Study Image */}
@@ -225,16 +225,11 @@ const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ isDarkMode }) =
                       <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${study.gradient} shadow-lg mb-4 group-hover:shadow-xl transition-all duration-300`}>
                         <study.icon className="w-6 h-6 text-white" />
                       </div>
-                      
-                      {/* Large Metric Display */}
-                      <div className={`text-3xl font-bold bg-gradient-to-r ${study.gradient} bg-clip-text text-transparent mb-2`}>
-                        {study.metric}
-                      </div>
                     </div>
                   </div>
 
                   {/* Study Details */}
-                  <div className="space-y-4">
+                  <div className="space-y-4 flex-1 flex flex-col">
                     <div>
                       <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-gray-900 transition-colors">
                         {study.title}
@@ -245,12 +240,12 @@ const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ isDarkMode }) =
                       </div>
                     </div>
                     
-                    <p className="text-gray-600 leading-relaxed group-hover:text-gray-800 transition-colors">
+                    <p className="text-gray-600 leading-relaxed group-hover:text-gray-800 transition-colors flex-1">
                       {study.description}
                     </p>
                     
                     {/* Footer */}
-                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
                       <span className="text-sm text-gray-500 font-medium">{study.source}</span>
                       <a 
                         href={study.link}
@@ -282,43 +277,66 @@ const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ isDarkMode }) =
           ))}
         </div>
 
-        {/* Enhanced Summary Stats */}
+        {/* Enhanced Summary Section */}
         <div className="relative">
-          <div className="bg-gradient-to-r from-blue-900/20 via-purple-900/20 to-blue-900/20 backdrop-blur-xl rounded-3xl p-8 border border-white/10">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Collective Impact Across Studies
-              </h3>
-              <p className="text-gray-300">
-                Combined results from leading research institutions and industry leaders
-              </p>
+          <div className="bg-black border border-gray-800 rounded-3xl p-8 relative overflow-hidden">
+            {/* Background Elements */}
+            <div className="absolute inset-0">
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-900/10 via-black to-gray-800/10"></div>
+              
+              {/* Floating Orbs */}
+              {[...Array(4)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute rounded-full bg-white/5 blur-xl animate-pulse"
+                  style={{
+                    width: `${60 + Math.random() * 80}px`,
+                    height: `${60 + Math.random() * 80}px`,
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
+                    animationDelay: `${Math.random() * 3}s`,
+                    animationDuration: `${2 + Math.random() * 2}s`
+                  }}
+                />
+              ))}
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {[
-                { label: 'Average ROI Increase', value: '400%+', icon: TrendingUp },
-                { label: 'Time Reduction', value: '60-70%', icon: Clock },
-                { label: 'Conversion Improvement', value: '21x', icon: Users },
-                { label: 'Payback Period', value: '9-30 days', icon: ArrowRight }
-              ].map((stat, index) => (
-                <div
-                  key={index}
-                  className={`text-center transform transition-all duration-500 hover:scale-105 ${
-                    visibleCards[index] ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-                  }`}
-                  style={{ transitionDelay: `${index * 150 + 800}ms` }}
-                >
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/10 mb-3 group-hover:bg-white/20 transition-colors">
-                    <stat.icon className="w-6 h-6 text-blue-400" />
+            <div className="relative z-10">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  Collective Impact Across Studies
+                </h3>
+                <p className="text-gray-300">
+                  Combined results from leading research institutions and industry leaders
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {[
+                  { label: 'Average ROI Increase', value: 'Significant', icon: TrendingUp },
+                  { label: 'Time Reduction', value: 'Substantial', icon: Clock },
+                  { label: 'Conversion Improvement', value: 'Dramatic', icon: Users },
+                  { label: 'Payback Period', value: 'Rapid', icon: ArrowRight }
+                ].map((stat, index) => (
+                  <div
+                    key={index}
+                    className={`text-center transform transition-all duration-500 hover:scale-105 ${
+                      visibleCards[index] ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                    }`}
+                    style={{ transitionDelay: `${index * 150 + 800}ms` }}
+                  >
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/10 mb-3 hover:bg-white/20 transition-colors">
+                      <stat.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="text-2xl font-bold text-white mb-1">
+                      {stat.value}
+                    </div>
+                    <div className="text-gray-400 text-sm">
+                      {stat.label}
+                    </div>
                   </div>
-                  <div className="text-2xl font-bold text-white mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-gray-400 text-sm">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>

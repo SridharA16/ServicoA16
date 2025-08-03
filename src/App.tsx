@@ -7,9 +7,12 @@ import SystemsCarousel from './components/SystemsCarousel';
 import SystemsSection from './components/SystemsSection';
 import WhyChooseSection from './components/WhyChooseSection';
 import ImplementationSection from './components/ImplementationSection';
+import AdHocServicesSection from './components/AdHocServicesSection';
 import FinalCTA from './components/FinalCTA';
 import CaseStudiesSection from './components/CaseStudiesSection';
+import FAQSection from './components/FAQSection';
 import BookingModal from './components/BookingModal';
+import Footer from './components/Footer';
 
 function App() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
@@ -44,10 +47,12 @@ function App() {
         activeSystem={activeSystem}
         onSystemChange={handleSystemChange}
       />
+      <AdHocServicesSection onBookingClick={handleBookingClick} isDarkMode={isDarkMode} />
       <WhyChooseSection isDarkMode={isDarkMode} />
       <ImplementationSection isDarkMode={isDarkMode} />
       <CaseStudiesSection isDarkMode={isDarkMode} />
-      <FinalCTA onBookingClick={handleBookingClick} isDarkMode={isDarkMode} />
+      <FAQSection isDarkMode={isDarkMode} />
+      <Footer />
       <BookingModal 
         isOpen={isBookingModalOpen}
         onClose={handleCloseModal}
