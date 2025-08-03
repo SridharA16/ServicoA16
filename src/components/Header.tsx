@@ -102,7 +102,7 @@ const Header: React.FC<HeaderProps> = ({ onBookingClick, isDarkMode, activeSyste
           <div className="flex-1 flex justify-end">
             <button
               onClick={onBookingClick}
-              className="btn-primary group"
+              className="btn-primary group btn-hover-effect"
             >
               <Calendar className="w-5 h-5 mr-2" />
               AI Strategy Session

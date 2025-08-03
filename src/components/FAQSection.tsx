@@ -15,6 +15,7 @@ interface FAQItem {
 const FAQSection: React.FC<FAQSectionProps> = ({ isDarkMode }) => {
   const [openItems, setOpenItems] = useState<string[]>([]);
   const [activeCategory, setActiveCategory] = useState<string>('general');
+  const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
 
   const toggleItem = (id: string) => {
     setOpenItems(prev => 
@@ -223,6 +224,19 @@ const FAQSection: React.FC<FAQSectionProps> = ({ isDarkMode }) => {
 
   const filteredFAQs = faqData.filter(faq => faq.category === activeCategory);
 
+  // Auto-rotate categories every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentCategoryIndex((prevIndex) => {
+        const nextIndex = (prevIndex + 1) % categories.length;
+        setActiveCategory(categories[nextIndex].id);
+        return nextIndex;
+      });
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="faq-section" className="py-20 bg-black relative overflow-hidden">
       {/* Background Elements */}
@@ -347,11 +361,12 @@ const FAQSection: React.FC<FAQSectionProps> = ({ isDarkMode }) => {
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
                   <button className="btn-primary group">
+                  <button className="btn-primary group btn-hover-effect">
                     <Calendar className="w-5 h-5 mr-2" />
                     Schedule Free Discovery Call
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </button>
-                  <button className="btn-secondary group">
+                  <button className="btn-secondary group btn-hover-effect">
                     <Download className="w-5 h-5 mr-2" />
                     Download System Proposals
                   </button>

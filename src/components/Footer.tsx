@@ -255,7 +255,7 @@ const Footer = () => {
                   />
                   <button
                     type="submit"
-                    className="btn-primary px-6 py-3 whitespace-nowrap"
+                    className="btn-primary px-6 py-3 whitespace-nowrap btn-hover-effect"
                     disabled={isSubscribed}
                   >
                     {isSubscribed ? (

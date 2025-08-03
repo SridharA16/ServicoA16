@@ -28,7 +28,7 @@ const Hero: React.FC<HeroProps> = ({ onBookingClick, isDarkMode }) => {
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
             <button
               onClick={onBookingClick}
-              className="btn-primary group"
+              className="btn-primary group btn-hover-effect"
             >
               Get Your Custom Transformation Roadmap
               <ArrowRight className="ml-2 w-5 h-5" />

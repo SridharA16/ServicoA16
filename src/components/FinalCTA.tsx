@@ -23,7 +23,7 @@ const FinalCTA: React.FC<FinalCTAProps> = ({ onBookingClick, isDarkMode }) => {
         
         <button
           onClick={onBookingClick}
-          className="btn-primary group mb-6"
+          className="btn-primary group btn-hover-effect mb-6"
         >
           <Calendar className="w-5 h-5 mr-2" />
           Schedule Strategic Consultation

@@ -296,7 +296,7 @@ const SystemsCarousel: React.FC<SystemsCarouselProps> = ({ onBookingClick, isDar
         <div className="text-center mt-12">
           <button
             onClick={onBookingClick}
-            className="btn-primary group transform hover:scale-105 transition-all duration-300"
+            className="btn-primary group btn-hover-effect"
           >
             Get Your Custom Implementation Plan
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
