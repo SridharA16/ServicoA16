@@ -32,42 +32,31 @@ const Footer = () => {
     }
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const solutions = [
-    'Client Acquisition Engine',
-    'Operations Automation Hub', 
-    'Client Success Platform',
-    'Custom AI Consulting'
+    { name: 'Client Acquisition Engine', action: () => scrollToSection('systems-section') },
+    { name: 'Operations Automation Hub', action: () => scrollToSection('systems-section') },
+    { name: 'Client Success Platform', action: () => scrollToSection('systems-section') },
+    { name: 'AI Workflows & Services', action: () => scrollToSection('adhoc-services-section') }
   ];
 
   const resources = [
-    'Case Studies & Success Stories',
-    'ROI Calculator',
-    'Implementation Guide', 
-    'AI Readiness Assessment',
-    'Download System Proposals'
+    { name: 'Case Studies & ROI', action: () => scrollToSection('case-studies-section') },
+    { name: 'Implementation Process', action: () => scrollToSection('implementation-section') },
+    { name: 'FAQ', action: () => scrollToSection('faq-section') },
+    { name: 'Download System Proposals', action: () => window.open('/pdfs/client-acquisition-engine.pdf', '_blank') }
   ];
 
   const company = [
-    'About Us',
-    'Our Team',
-    'Client Testimonials',
-    'Privacy Policy',
-    'Terms of Service'
-  ];
-
-  const industries = [
-    {
-      title: 'Legal Services',
-      services: ['Law Firms (All Practice Areas)', 'Solo Practitioners', 'Legal Departments', 'Litigation Support']
-    },
-    {
-      title: 'Accounting & Finance', 
-      services: ['CPA Firms', 'Tax Preparation Services', 'Bookkeeping Services', 'Financial Advisory']
-    },
-    {
-      title: 'Consulting Services',
-      services: ['Management Consulting', 'IT Consulting', 'Marketing Agencies', 'Business Advisory']
-    }
+    { name: 'Why Choose Us', action: () => scrollToSection('why-choose-section') },
+    { name: 'Schedule Consultation', action: () => scrollToSection('hero-section') },
+    { name: 'Contact Information', action: () => scrollToSection('footer-section') }
   ];
 
   const securityFeatures = [
@@ -109,205 +98,188 @@ const Footer = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* CTA Banner */}
-        {/* Main Footer Content */}
+        {/* Main Footer Content - Classic Layout */}
         <div className="py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
-            {/* Company Information */}
-            <div className="lg:col-span-1">
-              <div className="mb-8">
-                <h3 className="text-3xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
-                  Serviqo
-                </h3>
-                <p className="text-gray-300 mb-6 leading-relaxed">
-                  Transforming Professional Services Through AI Innovation
-                </p>
-                
-                {/* Contact Information */}
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <Phone className="w-5 h-5 text-blue-400" />
-                    <a href="tel:+919059886228" className="text-gray-300 hover:text-white transition-colors">
-                      +91 9059886228
-                    </a>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <Mail className="w-5 h-5 text-blue-400" />
-                    <a href="mailto:sridhar.serviqo@gmail.com" className="text-gray-300 hover:text-white transition-colors">
-                      sridhar.serviqo@gmail.com
-                    </a>
-                  </div>
+          {/* Company Logo and Tagline - Top Left */}
+          <div className="mb-12">
+            <h2 className="text-4xl font-bold text-white mb-3" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
+              Serviqo
+            </h2>
+            <p className="text-lg text-gray-300 max-w-md leading-relaxed" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
+              Smart AI Solutions for Professional Services
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            {/* Our Solutions */}
+            <div>
+              <h3 className="text-lg font-bold text-white mb-6" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
+                Our Solutions
+              </h3>
+              <ul className="space-y-3">
+                {solutions.map((solution, index) => (
+                  <li key={index}>
+                    <button 
+                      onClick={solution.action}
+                      className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
+                    >
+                      <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                      {solution.name}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <h3 className="text-lg font-bold text-white mb-6" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
+                Resources
+              </h3>
+              <ul className="space-y-3">
+                {resources.map((resource, index) => (
+                  <li key={index}>
+                    <button 
+                      onClick={resource.action}
+                      className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
+                    >
+                      <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                      {resource.name}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div>
+              <h3 className="text-lg font-bold text-white mb-6" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
+                Company
+              </h3>
+              <ul className="space-y-3">
+                {company.map((item, index) => (
+                  <li key={index}>
+                    <button 
+                      onClick={item.action}
+                      className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
+                    >
+                      <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                      {item.name}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact & Security */}
+            <div>
+              <h3 className="text-lg font-bold text-white mb-6" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
+                Contact & Security
+              </h3>
+              
+              {/* Contact Information */}
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center space-x-3">
+                  <Phone className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                  <a href="tel:+919059886228" className="text-gray-300 hover:text-white transition-colors text-base">
+                    +91 9059886228
+                  </a>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                  <a href="mailto:sridhar.serviqo@gmail.com" className="text-gray-300 hover:text-white transition-colors text-base">
+                    sridhar.serviqo@gmail.com
+                  </a>
                 </div>
               </div>
 
-              {/* Trust Signals */}
-              <div className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-800">
-                <h4 className="text-white font-semibold mb-4 flex items-center">
-                  <Shield className="w-5 h-5 mr-2 text-green-400" />
+              {/* Security Features */}
+              <div className="mb-6">
+                <h4 className="text-white font-semibold mb-3 text-base flex items-center">
+                  <Shield className="w-4 h-4 mr-2 text-green-400" />
                   Security & Compliance
                 </h4>
                 <div className="space-y-2">
-                  {securityFeatures.map((feature, index) => (
+                  {securityFeatures.slice(0, 3).map((feature, index) => (
                     <div key={index} className="flex items-center space-x-2">
-                      <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
-                      <span className="text-gray-300 text-sm">{feature}</span>
+                      <CheckCircle className="w-3 h-3 text-green-400 flex-shrink-0" />
+                      <span className="text-gray-300 text-sm leading-tight">{feature}</span>
                     </div>
                   ))}
                 </div>
               </div>
-            </div>
 
-            {/* Quick Links */}
-            <div className="lg:col-span-3">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {/* Solutions */}
-                <div>
-                  <h4 className="text-white font-semibold mb-6 text-lg">Our Solutions</h4>
-                  <ul className="space-y-3">
-                    {solutions.map((solution, index) => (
-                      <li key={index}>
-                        <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm flex items-center group">
-                          <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
-                          {solution}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Resources */}
-                <div>
-                  <h4 className="text-white font-semibold mb-6 text-lg">Resources</h4>
-                  <ul className="space-y-3">
-                    {resources.map((resource, index) => (
-                      <li key={index}>
-                        <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm flex items-center group">
-                          <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
-                          {resource}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Company */}
-                <div>
-                  <h4 className="text-white font-semibold mb-6 text-lg">Company</h4>
-                  <ul className="space-y-3">
-                    {company.map((item, index) => (
-                      <li key={index}>
-                        <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm flex items-center group">
-                          <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
-                          {item}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Industries We Serve */}
-          <div className="mt-16 pt-12 border-t border-gray-800">
-            <h3 className="text-2xl font-bold text-white mb-8 text-center" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
-              Industries We Serve
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {industries.map((industry, index) => (
-                <div key={index} className="bg-gray-900/30 backdrop-blur-sm rounded-2xl p-6 border border-gray-800 hover:border-gray-700 transition-all duration-300 group">
-                  <h4 className="text-white font-semibold mb-4 text-lg group-hover:text-blue-400 transition-colors">
-                    {industry.title}
-                  </h4>
-                  <ul className="space-y-2">
-                    {industry.services.map((service, serviceIndex) => (
-                      <li key={serviceIndex} className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-blue-400 rounded-full flex-shrink-0"></div>
-                        <span className="text-gray-300 text-sm">{service}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Newsletter & Social */}
-          <div className="mt-16 pt-12 border-t border-gray-800">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Newsletter */}
+              {/* Social Links */}
               <div>
-                <h3 className="text-xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
-                  Stay Ahead of the AI Revolution
-                </h3>
-                <p className="text-gray-300 mb-6">
-                  Get weekly insights on AI innovations, implementation best practices, industry case studies, and exclusive resources.
-                </p>
-                
-                <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email address"
-                    className="flex-1 px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition-colors"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    className="btn-primary px-6 py-3 whitespace-nowrap btn-hover-effect"
-                    disabled={isSubscribed}
-                  >
-                    {isSubscribed ? (
-                      <>
-                        <CheckCircle className="w-5 h-5 mr-2" />
-                        Subscribed!
-                      </>
-                    ) : (
-                      <>
-                        Subscribe
-                        <ArrowRight className="w-5 h-5 ml-2" />
-                      </>
-                    )}
-                  </button>
-                </form>
-                
-                <p className="text-gray-400 text-sm mt-3">
-                  We respect your privacy. Unsubscribe at any time.
-                </p>
-              </div>
-
-              {/* Social Media & Get Started */}
-              <div>
-                {/* Social Links */}
-                <h4 className="text-white font-semibold mb-4">Connect With Us</h4>
-                <div className="flex items-center space-x-4 mb-4">
+                <h4 className="text-white font-semibold mb-3 text-base">Connect With Us</h4>
+                <div className="flex items-center space-x-4">
                   {socialLinks.map((social, index) => (
                     <a
                       key={index}
                       href={social.href}
-                      className="w-10 h-10 bg-gray-900 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-800 hover:border-gray-600 transition-all duration-300"
+                      className="w-10 h-10 bg-gray-900 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-800 hover:border-gray-600 hover:scale-110 transition-all duration-300"
                       aria-label={social.label}
                     >
                       <social.icon className="w-5 h-5" />
                     </a>
                   ))}
                 </div>
-                <p className="text-gray-400 text-sm">
-                  Follow for AI implementation tips, industry insights, and client success stories.
-                </p>
               </div>
             </div>
           </div>
 
-          {/* 24/7 Support */}
+          {/* Newsletter Section */}
+          <div className="mt-16 pt-12 border-t border-gray-800">
+            <div className="max-w-2xl mx-auto text-center">
+              <h3 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
+                Stay Ahead of the AI Revolution
+              </h3>
+              <p className="text-gray-300 mb-8 text-lg">
+                Get weekly insights on AI innovations, implementation best practices, and industry case studies.
+              </p>
+              
+              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 max-w-lg mx-auto">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email address"
+                  className="flex-1 px-6 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all duration-300 text-base"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="btn-primary px-8 py-3 whitespace-nowrap text-base font-semibold"
+                  disabled={isSubscribed}
+                >
+                  {isSubscribed ? (
+                    <>
+                      <CheckCircle className="w-5 h-5 mr-2" />
+                      Subscribed!
+                    </>
+                  ) : (
+                    <>
+                      Subscribe
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </>
+                  )}
+                </button>
+              </form>
+              
+              <p className="text-gray-400 text-sm mt-4">
+                We respect your privacy. Unsubscribe at any time.
+              </p>
+            </div>
+          </div>
+
+          {/* 24/7 Support Banner */}
           <div className="mt-16 pt-12 border-t border-gray-800">
             <div className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
               <div className="text-center">
-                <h3 className="text-xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
+                <h3 className="text-2xl font-bold text-white mb-6" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
                   24/7 Technical Support for Existing Clients
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                   <div className="flex items-center justify-center space-x-2">
                     <Phone className="w-5 h-5 text-red-400" />
                     <span className="text-gray-300 text-sm">Emergency Hotline</span>
@@ -332,28 +304,24 @@ const Footer = () => {
 
         {/* Legal Footer */}
         <div className="py-8 border-t border-gray-800">
-          <div className="text-center mb-6">
+          <div className="text-center">
             <p className="text-gray-400 text-sm mb-4">
               © 2025 Serviqo. All rights reserved.
             </p>
-            <div className="flex flex-wrap justify-center items-center space-x-6 text-gray-400 text-sm">
+            <div className="flex flex-wrap justify-center items-center space-x-4 text-gray-400 text-sm mb-4">
               <span>Results may vary based on implementation</span>
               <span>•</span>
               <span>ROI calculations based on documented case studies</span>
               <span>•</span>
               <span>All client information remains confidential</span>
             </div>
-          </div>
-          
-          <div className="text-center">
-            <p className="text-gray-400 text-xs max-w-4xl mx-auto leading-relaxed">
+            
+            <p className="text-gray-400 text-sm max-w-4xl mx-auto leading-relaxed">
               This website and our services comply with all applicable professional services regulations including state bar association rules, 
-              CPA professional standards, and federal compliance requirements. Your privacy is protected under our comprehensive Privacy Policy. 
-              We use cookies to enhance your experience and never share personal information with third parties.
+              CPA professional standards, and federal compliance requirements. Your privacy is protected under our comprehensive Privacy Policy.
             </p>
           </div>
         </div>
-
       </div>
     </footer>
   );

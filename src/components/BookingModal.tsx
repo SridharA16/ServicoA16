@@ -26,7 +26,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, bookingLin
           <div className="absolute top-0 right-0 pt-4 pr-4">
             <button
               type="button"
-              className="btn-secondary p-2 btn-hover-effect"
+              className="btn-secondary p-2"
               onClick={onClose}
             >
               <span className="sr-only">Close</span>
@@ -39,7 +39,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, bookingLin
               <h3 className="text-2xl leading-6 font-bold mb-4 text-white transition-colors duration-300" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
                 Schedule Your AI Strategy Session
               </h3>
-              <p className="mb-6 text-white transition-colors duration-300" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+              <p className="mb-6 text-white transition-colors duration-300" style={{ fontFamily: "'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
                 Book a complimentary 30-minute consultation to discuss your practice's AI transformation roadmap.
               </p>
               

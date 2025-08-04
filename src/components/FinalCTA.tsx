@@ -14,17 +14,16 @@ const FinalCTA: React.FC<FinalCTAProps> = ({ onBookingClick, isDarkMode }) => {
           Ready to Transform Your Practice?
         </h2>
         <p className="text-xl mb-8 text-white transition-colors duration-300" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
-        <p className="text-xl mb-8 text-white transition-colors duration-300" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
           97% of business leaders plan to increase GenAI investments, with 43% expecting to spend over $100 million. 
           Don't let competitors gain the advantage.
         </p>
-        <p className="text-lg mb-8 text-white transition-colors duration-300" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+        <p className="text-lg mb-8 text-white transition-colors duration-300" style={{ fontFamily: "'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
           Get your custom transformation roadmap and investment analysis:
         </p>
         
         <button
           onClick={onBookingClick}
-          className="btn-primary group btn-hover-effect mb-6"
+          className="btn-primary group mb-6"
         >
           <Calendar className="w-5 h-5 mr-2" />
           Schedule Strategic Consultation
@@ -32,7 +31,6 @@ const FinalCTA: React.FC<FinalCTAProps> = ({ onBookingClick, isDarkMode }) => {
         </button>
         
         <p className="text-sm text-white transition-colors duration-300" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
-        <p className="text-sm text-white transition-colors duration-300" style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
           Custom quotes provided based on your firm's specific needs and growth objectives.
         </p>
       </div>
@@ -41,5 +39,3 @@ const FinalCTA: React.FC<FinalCTAProps> = ({ onBookingClick, isDarkMode }) => {
 };
 
 export default FinalCTA;
-  )
-}
