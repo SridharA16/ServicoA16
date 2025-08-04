@@ -111,247 +111,125 @@ const Footer = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-            {/* Platform */}
+            {/* Our Solutions */}
             <div>
-              <h3 className="text-lg font-bold text-white mb-6" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>Platform</h3>
+              <h3 className="text-lg font-bold text-white mb-6" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
+                Our Solutions
+              </h3>
               <ul className="space-y-3">
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('systems-section')}
-                    className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
-                  >
-                    <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    Assistant
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('systems-section')}
-                    className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
-                  >
-                    <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    Vault
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('adhoc-services-section')}
-                    className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
-                  >
-                    <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    Knowledge
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('adhoc-services-section')}
-                    className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
-                  >
-                    <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    Workflows
-                  </button>
-                </li>
-              </ul>
-            </div>
-
-            {/* Solutions */}
-            <div>
-              <h3 className="text-lg font-bold text-white mb-6" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>Solutions</h3>
-              <ul className="space-y-3">
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('systems-section')}
-                    className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
-                  >
-                    <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    Innovation
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('systems-section')}
-                    className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
-                  >
-                    <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    In-House
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('systems-section')}
-                    className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
-                  >
-                    <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    Transactional
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('systems-section')}
-                    className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
-                  >
-                    <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    Litigation
-                  </button>
-                </li>
-              </ul>
-            </div>
-
-            {/* About */}
-            <div>
-              <h3 className="text-lg font-bold text-white mb-6" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>About</h3>
-              <ul className="space-y-3">
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('case-studies-section')}
-                    className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
-                  >
-                    <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    Customers
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('footer-section')}
-                    className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
-                  >
-                    <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    Security
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('why-choose-section')}
-                    className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
-                  >
-                    <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    Company
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('case-studies-section')}
-                    className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
-                  >
-                    <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    Blog
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('case-studies-section')}
-                    className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
-                  >
-                    <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    Newsroom
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('footer-section')}
-                    className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
-                  >
-                    <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    Careers
-                  </button>
-                </li>
+                {solutions.map((solution, index) => (
+                  <li key={index}>
+                    <button 
+                      onClick={solution.action}
+                      className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
+                    >
+                      <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                      {solution.name}
+                    </button>
+                  </li>
+                ))}
               </ul>
             </div>
 
             {/* Resources */}
             <div>
-              <h3 className="text-lg font-bold text-white mb-6" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>Resources</h3>
+              <h3 className="text-lg font-bold text-white mb-6" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
+                Resources
+              </h3>
               <ul className="space-y-3">
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('faq-section')}
-                    className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
-                  >
-                    <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    Legal
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => scrollToSection('footer-section')}
-                    className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
-                  >
-                    <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    Privacy Policy
-                  </button>
-                </li>
-                <li>
-                  <button 
-                    onClick={() => window.open('/pdfs/client-acquisition-engine.pdf', '_blank')}
-                    className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
-                  >
-                    <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    Press Kit
-                  </button>
-                </li>
+                {resources.map((resource, index) => (
+                  <li key={index}>
+                    <button 
+                      onClick={resource.action}
+                      className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
+                    >
+                      <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                      {resource.name}
+                    </button>
+                  </li>
+                ))}
               </ul>
             </div>
-          </div>
 
-          {/* Contact Information - Bottom Right */}
-          <div className="mt-16 pt-12 border-t border-gray-800">
-            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end">
-              {/* Security Features - Left Side */}
-              <div className="mb-8 lg:mb-0">
-                <h4 className="text-white font-semibold mb-4 text-lg flex items-center">
-                  <Shield className="w-5 h-5 mr-2 text-green-400" />
+            {/* Company */}
+            <div>
+              <h3 className="text-lg font-bold text-white mb-6" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
+                Company
+              </h3>
+              <ul className="space-y-3">
+                {company.map((item, index) => (
+                  <li key={index}>
+                    <button 
+                      onClick={item.action}
+                      className="text-gray-300 hover:text-white transition-colors duration-300 text-base flex items-center group w-full text-left"
+                    >
+                      <ArrowRight className="w-4 h-4 mr-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                      {item.name}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact & Security */}
+            <div>
+              <h3 className="text-lg font-bold text-white mb-6" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
+                Contact & Security
+              </h3>
+              
+              {/* Contact Information */}
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center space-x-3">
+                  <Phone className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                  <a href="tel:+919059886228" className="text-gray-300 hover:text-white transition-colors text-base">
+                    +91 9059886228
+                  </a>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />
+                  <a href="mailto:sridhar.serviqo@gmail.com" className="text-gray-300 hover:text-white transition-colors text-base">
+                    sridhar.serviqo@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              {/* Security Features */}
+              <div className="mb-6">
+                <h4 className="text-white font-semibold mb-3 text-base flex items-center">
+                  <Shield className="w-4 h-4 mr-2 text-green-400" />
                   Security & Compliance
                 </h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {securityFeatures.map((feature, index) => (
+                <div className="space-y-2">
+                  {securityFeatures.slice(0, 3).map((feature, index) => (
                     <div key={index} className="flex items-center space-x-2">
-                      <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
+                      <CheckCircle className="w-3 h-3 text-green-400 flex-shrink-0" />
                       <span className="text-gray-300 text-sm leading-tight">{feature}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Contact Information - Right Side */}
-              <div className="text-right">
-                <h4 className="text-white font-semibold mb-4 text-lg">Contact Us</h4>
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-center justify-end space-x-3">
-                    <a href="tel:+919059886228" className="text-gray-300 hover:text-white transition-colors text-base">
-                      +91 9059886228
+              {/* Social Links */}
+              <div>
+                <h4 className="text-white font-semibold mb-3 text-base">Connect With Us</h4>
+                <div className="flex items-center space-x-4">
+                  {socialLinks.map((social, index) => (
+                    <a
+                      key={index}
+                      href={social.href}
+                      className="w-10 h-10 bg-gray-900 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-800 hover:border-gray-600 hover:scale-110 transition-all duration-300"
+                      aria-label={social.label}
+                    >
+                      <social.icon className="w-5 h-5" />
                     </a>
-                    <Phone className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                  </div>
-                  <div className="flex items-center justify-end space-x-3">
-                    <a href="mailto:sridhar.serviqo@gmail.com" className="text-gray-300 hover:text-white transition-colors text-base">
-                      sridhar.serviqo@gmail.com
-                    </a>
-                    <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                  </div>
-                </div>
-
-                {/* Social Links */}
-                <div>
-                  <h5 className="text-white font-semibold mb-3 text-base">Connect With Us</h5>
-                  <div className="flex items-center justify-end space-x-4">
-                    {socialLinks.map((social, index) => (
-                      <a
-                        key={index}
-                        href={social.href}
-                        className="w-10 h-10 bg-gray-900 border border-gray-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-800 hover:border-gray-600 hover:scale-110 transition-all duration-300"
-                        aria-label={social.label}
-                      >
-                        <social.icon className="w-5 h-5" />
-                      </a>
-                    ))}
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
 
           {/* Newsletter Section */}
-          <div className="mt-12 pt-12 border-t border-gray-800">
+          <div className="mt-16 pt-12 border-t border-gray-800">
             <div className="max-w-2xl mx-auto text-center">
               <h3 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', Georgia, 'Times New Roman', serif" }}>
                 Stay Ahead of the AI Revolution
