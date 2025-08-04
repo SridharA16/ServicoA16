@@ -62,7 +62,6 @@ const Footer = () => {
   const securityFeatures = [
     'SOC 2 Type II Certified',
     'GDPR Compliant', 
-    'HIPAA Compliant',
     'Attorney-Client Privilege Protected',
     'Enterprise-Grade Encryption'
   ];
